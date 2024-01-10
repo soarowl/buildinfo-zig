@@ -51,7 +51,7 @@ pub fn build(b: *std.Build) !void {
         .optimize = optimize,
     });
 
-    exe.addModule("build_info", b.modules.get("build_info").?);
+    exe.root_module.addImport("build_info", b.modules.get("build_info").?);
 
     // This declares intent for the executable to be installed into the
     // standard location when the user invokes the "install" step (the default
